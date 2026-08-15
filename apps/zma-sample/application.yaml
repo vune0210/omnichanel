@@ -1,0 +1,5 @@
+database:
+  mongo:
+    uri: mongodb+srv://${username}:${password}@${host}/zma-sample?retryWrites=true&w=majority
+nats:
+  uri: ${hosts}
