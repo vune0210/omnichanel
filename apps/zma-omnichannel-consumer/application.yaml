@@ -1,0 +1,5 @@
+database:
+  mongo:
+    uri: mongodb+srv://${username}:${password}@${host}/zma-omnichannel-consumer?retryWrites=true&w=majority
+nats:
+  uri: ${hosts}

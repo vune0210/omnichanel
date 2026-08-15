@@ -1,0 +1,15 @@
+export enum KafkaTopicsEnum {
+  FacebookWebhook = 'FACEBOOK_WEBHOOK',
+  FacebookMessageReceived = 'FACEBOOK_MESSAGE_RECEIVED',
+  FacebookMessageDelivered = 'FACEBOOK_MESSAGE_DELIVERED',
+  FacebookMessageRead = 'FACEBOOK_MESSAGE_READ',
+  ZaloWebhook = 'ZALO_WEBHOOK',
+  InstagramWebhook = 'INSTAGRAM_WEBHOOK',
+  InstagramMessageReceived = 'INSTAGRAM_MESSAGE_RECEIVED',
+  InstagramMessageDelivered = 'INSTAGRAM_MESSAGE_DELIVERED',
+  InstagramMessageRead = 'INSTAGRAM_MESSAGE_READ',
+  WhatsAppWebhook = 'WHATSAPP_WEBHOOK',
+  WhatsAppMessageReceived = 'WHATSAPP_MESSAGE_RECEIVED',
+  WhatsAppMessageDelivered = 'WHATSAPP_MESSAGE_DELIVERED',
+  WhatsAppMessageRead = 'WHATSAPP_MESSAGE_READ',
+}
