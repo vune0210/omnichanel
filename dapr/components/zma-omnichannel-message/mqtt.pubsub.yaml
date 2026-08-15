@@ -1,0 +1,21 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: zma-omnichannel-mqtt-pubsub
+spec:
+  type: pubsub.mqtt
+  version: v1
+  metadata:
+    - name: url
+      value: "mqtt://localhost:1883"
+    - name: qos
+      value: "1"
+    - name: retain
+      value: "false"
+    - name: cleanSession
+      value: "true"
+    # Nếu cần auth
+    # - name: username
+    #   value: "user"
+    # - name: password
+    #   value: "pass"

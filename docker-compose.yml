@@ -1,0 +1,81 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: zma-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: string
+      MONGO_INITDB_ROOT_PASSWORD: string
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  scylla:
+    image: scylladb/scylla:5.4
+    container_name: zma-scylla
+    restart: unless-stopped
+    command:
+      - --smp
+      - "1"
+      - --memory
+      - 1G
+      - --overprovisioned
+      - "1"
+      - --api-address
+      - 0.0.0.0
+    ports:
+      - "9042:9042"
+      - "10000:10000"
+    volumes:
+      - scylla-data:/var/lib/scylla
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.1
+    container_name: zma-kafka
+    restart: unless-stopped
+    environment:
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+      KAFKA_NODE_ID: "1"
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_LISTENERS: PLAINTEXT://kafka:29092,CONTROLLER://kafka:29093,PLAINTEXT_HOST://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: "1"
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: "1"
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: "0"
+    ports:
+      - "9092:9092"
+    volumes:
+      - kafka-data:/bitnami/kafka
+
+  nats:
+    image: nats:2.10
+    container_name: zma-nats
+    restart: unless-stopped
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    command:
+      - -m
+      - "8222"
+
+  mqtt:
+    image: eclipse-mosquitto:2
+    container_name: zma-mqtt
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./docker/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mqtt-data:/mosquitto/data
+
+volumes:
+  mongo-data:
+  scylla-data:
+  kafka-data:
+  mqtt-data:

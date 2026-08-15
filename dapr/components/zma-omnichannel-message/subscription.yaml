@@ -1,0 +1,98 @@
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: facebook-message-received-sub
+spec:
+  topic: FACEBOOK_MESSAGE_RECEIVED
+  route: /facebook.message-received
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: facebook-message-delivered-sub
+spec:
+  topic: FACEBOOK_MESSAGE_DELIVERED
+  route: /facebook.message-delivered
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: facebook-message-read-sub
+spec:
+  topic: FACEBOOK_MESSAGE_READ
+  route: /facebook.message-read
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: instagram-message-received-sub
+spec:
+  topic: INSTAGRAM_MESSAGE_RECEIVED
+  route: /instagram.message-received
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: instagram-message-delivered-sub
+spec:
+  topic: INSTAGRAM_MESSAGE_DELIVERED
+  route: /instagram.message-delivered
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: instagram-message-read-sub
+spec:
+  topic: INSTAGRAM_MESSAGE_READ
+  route: /instagram.message-read
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: whatsapp-message-received-sub
+spec:
+  topic: WHATSAPP_MESSAGE_RECEIVED
+  route: /whatsapp.message-received
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: whatsapp-message-delivered-sub
+spec:
+  topic: WHATSAPP_MESSAGE_DELIVERED
+  route: /whatsapp.message-delivered
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: whatsapp-message-read-sub
+spec:
+  topic: WHATSAPP_MESSAGE_READ
+  route: /whatsapp.message-read
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-message

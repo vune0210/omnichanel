@@ -1,0 +1,16 @@
+# apiVersion: dapr.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: mongo-client-store
+# spec:
+#   type: state.mongodb
+#   version: v1
+#   metadata:
+#     - name: connectionString
+#       value: "mongodb+srv://${username}:${password}@${host}/?retryWrites=true&w=majority&appName=ZMA"
+#     - name: databaseName
+#       value: "omnichannel"
+#     - name: collectionName
+#       value: "clients"
+# scopes:
+#   - zma-omnichannel-message

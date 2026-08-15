@@ -1,0 +1,48 @@
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: facebook-sub
+spec:
+  topic: FACEBOOK_WEBHOOK
+  route: /facebook-webhook
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-consumer
+
+---
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: zalo-sub
+spec:
+  topic: ZALO_WEBHOOK
+  route: /zalo-webhook
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-consumer
+
+---
+
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: instagram-sub
+spec:
+  topic: INSTAGRAM_WEBHOOK
+  route: /instagram-webhook
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-consumer
+
+---
+
+apiVersion: dapr.io/v1alpha1
+kind: Subscription
+metadata:
+  name: whatsapp-sub
+spec:
+  topic: WHATSAPP_WEBHOOK
+  route: /whatsapp-webhook
+  pubsubname: zma-omnichannel-consumer-kafka-pubsub
+scopes:
+  - zma-omnichannel-consumer

@@ -1,0 +1,84 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+"""Client"""
+type Client {
+  channel: String!
+  firstName: String
+  id: String!
+  lastAgentInteract: DateTime
+  lastDeliveredWatermark: DateTime
+  lastName: String
+  lastReadWatermark: DateTime
+  platformId: String!
+  profilePicture: String
+}
+
+input ClientScyllaPagination {
+  before: DateTime
+  limit: Int = 10
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""Message"""
+type Message {
+  attachments: [String!]
+  authorId: String!
+  channelId: Float!
+  clientPlatformId: String!
+  deliveredAt: DateTime
+  id: String!
+  isDelivered: Boolean!
+  isRead: Boolean!
+  message: String
+  msgPlatformId: String
+  msgType: MessageTypeEnum!
+  readAt: DateTime
+  refId: String
+  timestamp: DateTime!
+}
+
+input MessageInput {
+  attachments: [String]
+  clientPlatformId: String!
+  message: String
+  platform: PlatformEnum!
+  type: MessageTypeEnum! = Text
+}
+
+enum MessageTypeEnum {
+  File
+  Image
+  Text
+  Video
+}
+
+type Mutation {
+  sendMessage(input: MessageInput!): Boolean!
+}
+
+input Pagination {
+  limit: Int = 10
+  skip: Int = 0
+}
+
+enum PlatformEnum {
+  Facebook
+  Zalo
+}
+
+type Query {
+  getAllClients(pagination: Pagination!): [Client!]!
+  getClient(clientPlatformId: String!, platform: PlatformEnum!): Client!
+  getMessagesByClient(clientPlatformId: String!, pagination: ClientScyllaPagination!, platform: PlatformEnum!): [Message!]!
+  privacyPolicy: String!
+  searchClients(input: String!, pagination: Pagination!): [Client!]!
+  termAndCondition: String!
+}
