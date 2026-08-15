@@ -2,7 +2,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.830.0",
     "@aws-sdk/s3-request-presigner": "^3.830.0",
-    "@casl/ability": "^6.7.3",
+    "@casl/ability": "^7.0.1",
     "@dapr/dapr": "^3.5.2",
     "@elastic/elasticsearch": "^9.0.2",
     "@escape.tech/graphql-armor": "^3.1.6",
