@@ -1,0 +1,13 @@
+database:
+  mongo:
+    uri: mongodb+srv://${username}:${password}@${host}/zma-omnichannel-consumer?retryWrites=true&w=majority
+  scylla:
+    contactPoints: ${hosts}
+    port: ${port}
+    datacenter: ${datacenter}
+    keyspace: ${keyspace}
+    username: ${username}
+    password: ${password}
+# nats:
+#   uri: ${hosts}
+
