@@ -1,0 +1,16 @@
+export enum ProductVariantEnum {
+  Size = 'SIZE',
+  Weight = 'WEIGHT',
+  Width = 'WIDTH',
+  Height = 'HEIGHT',
+  Length = 'LENGTH',
+  Color = 'COLOR',
+  Material = 'MATERIAL',
+  Origin = 'ORIGIN',
+  Style = 'STYLE',
+  Smell = 'SMELL',
+  Taste = 'TASTE',
+  Innovation = 'INNOVATION',
+  Ingredients = 'INGREDIENTS',
+  Warranty = 'WARRANTY',
+}

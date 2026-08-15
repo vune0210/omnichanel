@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package ClientService;
+
+service ClientService {
+  rpc CheckOrCreateClient (CheckOrCreateClientRequest) returns (CheckOrCreateClientResponse);
+}
+
+message CheckOrCreateClientRequest {
+  CheckOrCreateClientData data = 1;
+  optional string requestId = 2;
+}
+
+message CheckOrCreateClientData {
+  string platform = 1;
+  string platformId = 2;
+  optional string name = 3;
+}
+
+message CheckOrCreateClientResponse {
+  bool ok = 1;
+}

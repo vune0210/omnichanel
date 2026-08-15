@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@nestjs/graphql": "^13.0.3",
+    "class-validator": "^0.14.1",
+    "graphql": "^16.10.0"
+  },
+  "main": "./index.cjs",
+  "name": "@zma-nestjs-omnichannel/zma-types",
+  "private": true,
+  "type": "commonjs",
+  "types": "./index.d.ts",
+  "version": "0.0.1"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@zma-nestjs-omnichannel/zma-repositories",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "main": "./index.cjs",
+  "types": "./index.d.ts",
+  "dependencies": {
+    "mongoose": "^8.10.1"
+  }
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package StorageService;
+
+service StorageService {
+  rpc storageServiceConfirmUploadedFiles (ConfirmUploadedFilesInput) returns (ConfirmUploadedFilesOutput) {}
+}
+
+message ConfirmUploadedFilesInput {
+  UploadedData data = 1;
+  optional string requestId = 2;
+}
+
+message UploadedData {
+  string userId = 1;
+  repeated File files = 2;
+}
+
+message File {
+  string fileId = 1;
+}
+
+message ConfirmUploadedFilesOutput {
+  repeated File data = 1;
+}
