@@ -1,0 +1,57 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": ["es2020", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "paths": {
+      "@zma-nestjs-omnichannel/zma-config": ["libs/zma-config/src/index.ts"],
+      "@zma-nestjs-omnichannel/zma-decorators": ["libs/zma-decorators/src/index.ts"],
+      "@zma-nestjs-omnichannel/zma-grpc/client": ["libs/zma-grpc/src/interface/client.service.ts"],
+      "@zma-nestjs-omnichannel/zma-grpc/user": ["libs/zma-grpc/src/interface/user.service.ts"],
+      "@zma-nestjs-omnichannel/zma-i18n": ["libs/zma-i18n/src/index.ts"],
+      "@zma-nestjs-omnichannel/zma-middlewares": ["libs/zma-middlewares/src/index.ts"],
+      "@zma-nestjs-omnichannel/zma-repositories": ["libs/zma-repositories/src/index.ts"],
+      "@zma-nestjs-omnichannel/zma-types": ["libs/zma-types/src/index.ts"],
+      "@zma-nestjs-omnichannel/zma-types/inputs/client_input": [
+        "libs/zma-types/src/inputs/client/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/inputs/storage": [
+        "libs/zma-types/src/inputs/storage/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/inputs/user": ["libs/zma-types/src/inputs/user/index.ts"],
+      "@zma-nestjs-omnichannel/zma-types/mappers/client": [
+        "libs/zma-types/src/mappers/client/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/mappers/storage": [
+        "libs/zma-types/src/mappers/storage/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/mappers/user": [
+        "libs/zma-types/src/mappers/user/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/models/user": ["libs/zma-types/src/models/user/index.ts"],
+      "@zma-nestjs-omnichannel/zma-types/outputs/client_output": [
+        "libs/zma-types/src/outputs/client/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/outputs/storage": [
+        "libs/zma-types/src/outputs/storage/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-types/outputs/user": [
+        "libs/zma-types/src/outputs/user/index.ts"
+      ],
+      "@zma-nestjs-omnichannel/zma-utils": ["libs/zma-utils/src/index.ts"]
+    },
+    "rootDir": ".",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "es2015",
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

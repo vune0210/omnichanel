@@ -1,0 +1,104 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-symlinks
+      - id: forbid-submodules
+      - id: detect-private-key
+      - id: check-added-large-files
+      - id: end-of-file-fixer
+        exclude: '.*\.gql$'
+      - id: trailing-whitespace
+      - id: destroyed-symlinks
+        # - id: pretty-format-json
+        # args: [--autofix]
+  - repo: https://github.com/pre-commit/pre-commit
+    rev: v4.2.0
+    hooks:
+      - id: validate_manifest
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.8.3
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [pre-push]
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.22.0
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+  # - repo: https://github.com/standard/standard
+  #   rev: v17.1.2
+  #   hooks:
+  #     - id: standard
+  # - repo: https://github.com/pre-commit/mirrors-eslint
+  #   rev: v9.20.1
+  #   hooks:
+  #     - id: eslint
+  #       files: \.[jt]sx?$ # *.js, *.jsx, *.ts and *.tsx
+  #       types: [file]
+  #       additional_dependencies:
+  #         - eslint@latest
+  #         - eslint-config-standard@latest
+  #         # and whatever other plugins...
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.17.0
+    hooks:
+      - id: yamlfmt
+        exclude: |
+          (?x)^(
+              node_modules/ |
+              pnpm-lock.yaml |
+          )$
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.27.2
+    hooks:
+      - id: gitleaks
+        exclude: |
+          (?x)^(
+              node_modules/ |
+              pnpm-lock.yaml |
+              nx.json
+          )$
+  # - repo: https://github.com/thoughtworks/talisman
+  #   rev: 'v1.32.0' # Update me!
+  #   hooks:
+  #     # both pre-commit and pre-push supported
+  #     # -   id: talisman-push
+  #     - id: talisman-commit
+  #       entry: cmd --githook pre-commit
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--exclude-files', '.env']
+        exclude: |
+          (?x)^(
+              node_modules/ |
+              pnpm-lock.yaml |
+              nx.json
+          )$
+  - repo: local
+    hooks:
+      - id: lint-staged
+        name: lint-staged
+        entry: pnpm lint-staged
+        language: system
+        stages: [pre-commit]
+ci:
+  autofix_commit_msg: |
+    [pre-commit.ci] auto fixes from pre-commit.com hooks
+
+    for more information, see https://pre-commit.ci
+  autofix_prs: true
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+  autoupdate_schedule: weekly
+  skip: []
+  submodules: false
